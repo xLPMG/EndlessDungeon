@@ -57,11 +57,11 @@ public:
     virtual bool isFinished() = 0;
 
     /**
-     * @brief Gets the next state type.
+     * @brief Gets the type of the next state.
      *
      * @return The next state type.
      */
-    virtual StateType getNextState() const = 0;
+    virtual StateType getNextState() = 0;
 };
 
 #endif // STATE_HPP

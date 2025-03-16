@@ -3,10 +3,9 @@
  * @email github.com/xLPMG
  * @create date 16.03.2025
  * @modify date 16.03.2025
- * @desc Implementation of the game state of the main menu.
+ * @desc Implementation of the main menu state.
  */
 #include "states/MenuState.hpp"
-#include <SFML/Graphics.hpp>
 
 ed::states::MenuState::MenuState()
 {
@@ -111,7 +110,7 @@ bool ed::states::MenuState::isFinished()
     return m_isFinished;
 }
 
-ed::states::StateType ed::states::MenuState::getNextState() const
+ed::states::StateType ed::states::MenuState::getNextState()
 {
     return m_nextState;
 }

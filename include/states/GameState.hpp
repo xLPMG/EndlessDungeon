@@ -3,7 +3,7 @@
  * @email github.com/xLPMG
  * @create date 16.03.2025
  * @modify date 16.03.2025
- * @desc [description]
+ * @desc Header of the game state.
  */
 #ifndef GAMESTATE_HPP
 #define GAMESTATE_HPP
@@ -61,11 +61,11 @@ class ed::states::GameState : public ed::states::State
     bool isFinished() override;
 
     /**
-     * @brief Gets the next state.
+     * @brief Gets the type of the next state.
      *
      * @return The next state.
      */
-    ed::states::StateType getNextState() const override;
+    ed::states::StateType getNextState() override;
 
 private:
     bool m_isFinished = false;
