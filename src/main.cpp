@@ -13,7 +13,7 @@
 /**
  * @brief Main function. Serves as the entry point of the program by opening a window and running the game loop.
  */
-int main(int argc, char **argv)
+int main()
 {
     // Create the main window
     sf::RenderWindow window(sf::VideoMode({ed::WINDOW_WIDTH, ed::WINDOW_HEIGHT}), ed::GAME_NAME + " v" + ed::GAME_VERSION);
@@ -32,12 +32,20 @@ int main(int argc, char **argv)
     while (window.isOpen())
     {
         // Process events
-        while (const std::optional<sf::Event> event = window.pollEvent())
+        while (std::optional<sf::Event> eventOpt = window.pollEvent())
         {
-            // Close window: exit
-            if (event->is<sf::Event::Closed>())
+            if (eventOpt.has_value())
             {
-                window.close();
+                sf::Event event = std::exchange(eventOpt, std::nullopt).value();
+
+                if (event.is<sf::Event::Closed>())
+                {
+                    window.close();
+                }
+                else
+                {
+                    engine.handleInput(event);
+                }
             }
         }
 

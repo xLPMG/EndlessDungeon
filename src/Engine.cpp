@@ -2,7 +2,7 @@
  * @author lgrumbach
  * @email github.com/xLPMG
  * @create date 15.03.2025
- * @modify date 15.03.2025
+ * @modify date 16.03.2025
  * @desc Endless Dungeon game engine implementation file.
  */
 #include "Engine.hpp"
@@ -14,6 +14,7 @@
 ed::Engine::Engine()
 {
     m_statesStack = std::make_unique<std::stack<std::unique_ptr<ed::states::GameState>>>();
+    m_statesStack->push(std::make_unique<ed::states::MenuState>());
 }
 
 /**
@@ -21,6 +22,25 @@ ed::Engine::Engine()
  */
 void ed::Engine::update()
 {
+    // Update the current game state
+    if (!m_statesStack->empty())
+    {
+        m_statesStack->top()->update();
+    }
+}
+
+/**
+ * @brief Handles input events.
+ *
+ * @param event The input event to handle.
+ */
+void ed::Engine::handleInput(sf::Event &event)
+{
+    // Handle input for the current game state
+    if (!m_statesStack->empty())
+    {
+        m_statesStack->top()->handleInput(event);
+    }
 }
 
 /**

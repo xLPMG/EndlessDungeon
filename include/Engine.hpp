@@ -9,6 +9,7 @@
 #define ENGINE_HPP
 
 #include "states/GameState.hpp"
+#include "states/MenuState.hpp"
 #include <SFML/Graphics.hpp>
 
 #include <memory>
@@ -24,6 +25,7 @@ class ed::Engine
 public:
     Engine();
     void update();
+    void handleInput(sf::Event& event);
     void render(sf::RenderWindow &window);
 
 private:
