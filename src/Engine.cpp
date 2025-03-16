@@ -13,7 +13,7 @@
  */
 ed::Engine::Engine()
 {
-    m_statesStack = std::make_unique<std::stack<std::unique_ptr<ed::states::GameState>>>();
+    m_statesStack = std::make_unique<std::stack<std::unique_ptr<ed::states::State>>>();
     m_statesStack->push(std::make_unique<ed::states::MenuState>());
 }
 
@@ -22,10 +22,16 @@ ed::Engine::Engine()
  */
 void ed::Engine::update()
 {
-    // Update the current game state
+    // Update the current state
     if (!m_statesStack->empty())
     {
         m_statesStack->top()->update();
+
+        // If the current state is finished, pop it off the stack
+        if (m_statesStack->top()->isFinished())
+        {
+            m_statesStack->pop();
+        }
     }
 }
 
@@ -54,5 +60,7 @@ void ed::Engine::render(sf::RenderWindow &window)
     if (!m_statesStack->empty())
     {
         m_statesStack->top()->render(window);
+    }else{
+        window.close();
     }
 }

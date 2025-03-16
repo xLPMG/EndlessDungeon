@@ -8,7 +8,7 @@
 #ifndef ENGINE_HPP
 #define ENGINE_HPP
 
-#include "states/GameState.hpp"
+#include "states/State.hpp"
 #include "states/MenuState.hpp"
 #include <SFML/Graphics.hpp>
 
@@ -53,7 +53,7 @@ public:
     void render(sf::RenderWindow &window);
 
 private:
-    std::unique_ptr<std::stack<std::unique_ptr<ed::states::GameState>>> m_statesStack;
+    std::unique_ptr<std::stack<std::unique_ptr<ed::states::State>>> m_statesStack;
 };
 
 #endif // ENGINE_HPP

@@ -41,6 +41,13 @@ public:
      * @param window The window to render the game state to.
      */
     virtual void render(sf::RenderWindow& window) = 0;
+
+    /**
+     * @brief Checks if the state is finished.
+     *
+     * @return True if the state is finished, false otherwise.
+     */
+    virtual bool isFinished() = 0;
 };
 
 #endif // STATE_HPP

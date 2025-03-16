@@ -70,7 +70,7 @@ void ed::states::MenuState::handleInput(sf::Event &event)
         }
         else if(isLeftClick && m_exitSelected)
         {
-            
+            m_isFinished = true;
         }
     }
     
@@ -101,4 +101,9 @@ void ed::states::MenuState::render(sf::RenderWindow &window)
     window.draw(*m_titlePtr);
     window.draw(*m_playTextPtr);
     window.draw(*m_exitTextPtr);
+}
+
+bool ed::states::MenuState::isFinished()
+{
+    return m_isFinished;
 }

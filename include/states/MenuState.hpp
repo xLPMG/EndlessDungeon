@@ -53,7 +53,16 @@ public:
      */
     void render(sf::RenderWindow &window) override;
 
+    /**
+     * @brief Checks if the menu is finished.
+     *
+     * @return True if the menu is finished, false otherwise.
+     */
+    bool isFinished() override;
+
 private:
+    bool m_isFinished = false;
+
     sf::Font m_boldFont;
     sf::Font m_regularFont;
     std::unique_ptr<sf::Text> m_titlePtr;
