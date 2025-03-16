@@ -10,6 +10,7 @@
 
 #include "states/State.hpp"
 #include "states/MenuState.hpp"
+#include "states/GameState.hpp"
 #include <SFML/Graphics.hpp>
 
 #include <memory>

@@ -60,6 +60,13 @@ public:
      */
     bool isFinished() override;
 
+    /**
+     * @brief Gets the next state.
+     *
+     * @return The next state.
+     */
+    ed::states::StateType getNextState() const override;
+
 private:
     bool m_isFinished = false;
 
@@ -71,6 +78,7 @@ private:
 
     bool m_playSelected = false;
     bool m_exitSelected = false;
+    ed::states::StateType m_nextState = ed::states::StateType::None;
 };
 
 #endif // MENUSTATE_HPP

@@ -60,6 +60,13 @@ class ed::states::GameState : public ed::states::State
      */
     bool isFinished() override;
 
+    /**
+     * @brief Gets the next state.
+     *
+     * @return The next state.
+     */
+    ed::states::StateType getNextState() const override;
+
 private:
     bool m_isFinished = false;
 };

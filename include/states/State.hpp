@@ -14,6 +14,13 @@ namespace ed
 {
     namespace states
     {
+        enum class StateType
+        {
+            None,
+            Menu,
+            Game
+        };
+
         class State;
     }
 }
@@ -48,6 +55,13 @@ public:
      * @return True if the state is finished, false otherwise.
      */
     virtual bool isFinished() = 0;
+
+    /**
+     * @brief Gets the next state type.
+     *
+     * @return The next state type.
+     */
+    virtual StateType getNextState() const = 0;
 };
 
 #endif // STATE_HPP

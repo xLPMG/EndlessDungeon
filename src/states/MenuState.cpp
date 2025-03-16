@@ -67,9 +67,12 @@ void ed::states::MenuState::handleInput(sf::Event &event)
         bool isLeftClick = mousePressed->button == sf::Mouse::Button::Left;
         if(isLeftClick && m_playSelected)
         {
+            m_nextState = ed::states::StateType::Game;
+            m_isFinished = true;
         }
         else if(isLeftClick && m_exitSelected)
         {
+            m_nextState = ed::states::StateType::None;
             m_isFinished = true;
         }
     }
@@ -106,4 +109,9 @@ void ed::states::MenuState::render(sf::RenderWindow &window)
 bool ed::states::MenuState::isFinished()
 {
     return m_isFinished;
+}
+
+ed::states::StateType ed::states::MenuState::getNextState() const
+{
+    return m_nextState;
 }

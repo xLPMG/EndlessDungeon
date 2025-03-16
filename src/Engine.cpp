@@ -30,7 +30,21 @@ void ed::Engine::update()
         // If the current state is finished, pop it off the stack
         if (m_statesStack->top()->isFinished())
         {
+            ed::states::StateType nextState = m_statesStack->top()->getNextState();
             m_statesStack->pop();
+
+            switch (nextState)
+            {
+                case ed::states::StateType::Menu:
+                    m_statesStack->push(std::make_unique<ed::states::MenuState>());
+                    break;
+                case ed::states::StateType::Game:
+                    m_statesStack->push(std::make_unique<ed::states::GameState>());
+                    break;
+                case ed::states::StateType::None:
+                default:
+                    break;
+            }
         }
     }
 }
