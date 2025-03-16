@@ -1,0 +1,41 @@
+name: Release Ubuntu
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-publish-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libsfml-dev
+          
+      - name: Compile project
+        run:  make
+
+      - name: Copy assets
+        run: make copyassets
+
+      - name: Clean directory
+        run: make clean
+  
+      - name: Archive release
+        uses: thedoctor0/zip-release@0.7.6
+        with:
+          type: 'zip'
+          filename: 'ubuntu.zip'
+          path: './bin/linux'
+          
+      - name: Publish binaries
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ubuntu.zip
+          asset_name: endless_dungeon-ubuntu-${{  github.ref_name }}.zip
+          tag: ${{  github.ref_name }}
+          overwrite: true

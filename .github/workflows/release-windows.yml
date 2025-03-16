@@ -1,0 +1,47 @@
+name: Release Windows
+
+on:
+  push:
+    tags: [ '*' ]
+
+jobs:
+  build-and-publish:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install SFML on Windows
+        run: |
+          choco install mingw
+          choco install wget
+          wget https://www.sfml-dev.org/files/SFML-3.0.0-windows-gcc-14.2.0-mingw-64-bit.zip
+          7z x SFML-3.0.0-windows-gcc-14.2.0-mingw-64-bit.zip -oC:\SFML
+
+      - name: Compile project
+        run:  make
+
+      - name: Copy assets
+        run: make copyassets
+
+      - name: Copy SFML DLLs
+        run: xcopy C:\SFML\SFML-3.0.0\bin\*.dll .\bin\windows64\ /Y
+
+      - name: Clean directory
+        run: make clean
+  
+      - name: Archive release
+        uses: thedoctor0/zip-release@0.7.6
+        with:
+          type: 'zip'
+          filename: 'windows.zip'
+          path: './bin/windows64'
+
+      - name: Publish binaries
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: windows.zip
+          asset_name: endless_dungeon-windows-${{  github.ref_name }}.zip
+          tag: ${{  github.ref_name }}
+          overwrite: true
