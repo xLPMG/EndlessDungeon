@@ -2,7 +2,7 @@
  * @author lgrumbach
  * @email github.com/xLPMG
  * @create date 15.03.2025
- * @modify date 15.03.2025
+ * @modify date 16.03.2025
  * @desc Endless Dungeon game engine header file.
  */
 #ifndef ENGINE_HPP
@@ -35,7 +35,7 @@ public:
     ~Engine() = default;
 
     /**
-     * @brief Updates the engine.
+     * @brief Performs a single tick of the game loop. This updates the game logic and should be called at a constant TPS.
      */
     void update();
 
@@ -47,9 +47,9 @@ public:
     void handleInput(sf::Event &event);
 
     /**
-     * @brief Renders the engine to the window.
+     * @brief Tells the engine to render content to the window.
      *
-     * @param window The window to render the engine to.
+     * @param window The window to render to.
      */
     void render(sf::RenderWindow &window);
 

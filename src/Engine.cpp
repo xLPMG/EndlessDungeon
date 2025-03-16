@@ -8,18 +8,12 @@
 #include "Engine.hpp"
 #include <iostream>
 
-/**
- * @brief Constructor for the Engine class.
- */
 ed::Engine::Engine()
 {
     m_statesStack = std::make_unique<std::stack<std::unique_ptr<ed::states::State>>>();
     m_statesStack->push(std::make_unique<ed::states::MenuState>());
 }
 
-/**
- * @brief Performs a single tick of the game loop. This updates the game logic and should be called at a constant TPS.
- */
 void ed::Engine::update()
 {
     // Update the current state
@@ -49,11 +43,6 @@ void ed::Engine::update()
     }
 }
 
-/**
- * @brief Handles input events.
- *
- * @param event The input event to handle.
- */
 void ed::Engine::handleInput(sf::Event &event)
 {
     // Handle input for the current game state
@@ -63,11 +52,6 @@ void ed::Engine::handleInput(sf::Event &event)
     }
 }
 
-/**
- * @brief Draws the game to the window.
- *
- * @param window The window to render the game to.
- */
 void ed::Engine::render(sf::RenderWindow &window)
 {
     // Render the current game state
