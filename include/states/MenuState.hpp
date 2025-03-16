@@ -68,16 +68,24 @@ public:
     ed::states::StateType getNextState() override;
 
 private:
+    //! True if the game is finished, false otherwise.
     bool m_isFinished = false;
 
+    //! The bold font for the menu.
     sf::Font m_boldFont;
+    //! The regular font for the menu.
     sf::Font m_regularFont;
+    //! The title text for the menu.
     std::unique_ptr<sf::Text> m_titlePtr;
+    //! The play text for the menu.
     std::unique_ptr<sf::Text> m_playTextPtr;
+    //! The exit text for the menu.
     std::unique_ptr<sf::Text> m_exitTextPtr;
-
+    //! True if the play text is selected, false otherwise.
     bool m_playSelected = false;
+    //! True if the exit text is selected, false otherwise.
     bool m_exitSelected = false;
+    //! The next state to transition to.
     ed::states::StateType m_nextState = ed::states::StateType::None;
 };
 

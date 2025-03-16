@@ -11,7 +11,7 @@
 #include "Engine.hpp"
 
 /**
- * @brief Main function. Serves as the entry point of the program by opening a window and running the game loop.
+ * @brief Entry point of the program. Opens a window and runs the main loop.
  */
 int main()
 {

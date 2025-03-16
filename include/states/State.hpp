@@ -25,6 +25,12 @@ namespace ed
     }
 }
 
+/**
+ * @brief The state interface.
+ *
+ * The state interface is used to define the methods that all states must implement.
+ * States are used to represent different screens in the game, such as the main menu or the game screen.
+ */
 class ed::states::State
 {
 public:
@@ -40,14 +46,14 @@ public:
      *
      * @param event The input event to handle.
      */
-    virtual void handleInput(sf::Event& event) = 0;
+    virtual void handleInput(sf::Event &event) = 0;
 
     /**
      * @brief Renders the state to the window.
      *
      * @param window The window to render the game state to.
      */
-    virtual void render(sf::RenderWindow& window) = 0;
+    virtual void render(sf::RenderWindow &window) = 0;
 
     /**
      * @brief Checks if the state is finished.

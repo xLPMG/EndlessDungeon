@@ -31,6 +31,8 @@ namespace ed
     //! The target ticks per second.
     unsigned int const TARGET_TPS = 60;
 
+    const float DIAGONAL_SPEED = 0.7071;
+
     /**
      * @brief Checks a condition and throws a runtime error if it is false.
      *
@@ -43,6 +45,15 @@ namespace ed
         {
             throw std::runtime_error("Condition failed in class: " + className);
         }
+    }
+
+    /**
+     * @brief Checks if a float is not zero.
+     */
+    inline bool notZero(float value)
+    {
+        const float epsilon = 0.0001f;
+        return value > epsilon || value < -epsilon;
     }
 }
 

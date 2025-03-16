@@ -9,9 +9,12 @@
 #define GAMESTATE_HPP
 
 #include "State.hpp"
+#include "../Constants.hpp"
+#include "../graphics/Camera.hpp"
+#include "../entities/Player.hpp"
+
 #include <SFML/Graphics.hpp>
 #include <memory>
-#include "../Constants.hpp"
 
 namespace ed
 {
@@ -21,9 +24,15 @@ namespace ed
     }
 }
 
+/**
+ * @brief The game state class.
+ *
+ * The game state class represents the game state in the game. 
+ * It is responsible for updating, rendering, and handling input for the game.
+ */
 class ed::states::GameState : public ed::states::State
 {
-    public:
+public:
     /**
      * @brief Constructor for the GameState class.
      */
@@ -68,7 +77,12 @@ class ed::states::GameState : public ed::states::State
     ed::states::StateType getNextState() override;
 
 private:
+    //! True if the game is finished, false otherwise.
     bool m_isFinished = false;
+    //! The camera for the game.
+    std::unique_ptr<ed::graphics::Camera> m_camera;
+    //! The player for the game.
+    std::unique_ptr<ed::entities::Player> m_player;
 };
 
 #endif // GAMESTATE_HPP

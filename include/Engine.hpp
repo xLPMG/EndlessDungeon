@@ -21,6 +21,11 @@ namespace ed
     class Engine;
 }
 
+/**
+ * @brief The game engine class.
+ *
+ * The game engine class is responsible for running the game loop and managing the game states.
+ */
 class ed::Engine
 {
 public:
