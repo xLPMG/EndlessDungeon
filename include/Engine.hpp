@@ -23,9 +23,33 @@ namespace ed
 class ed::Engine
 {
 public:
+    /**
+     * @brief Constructor for the Engine class.
+     */
     Engine();
+
+    /**
+     * @brief Destructor for the Engine class.
+     */
+    ~Engine() = default;
+
+    /**
+     * @brief Updates the engine.
+     */
     void update();
-    void handleInput(sf::Event& event);
+
+    /**
+     * @brief Handles input events for the engine.
+     *
+     * @param event The input event to handle.
+     */
+    void handleInput(sf::Event &event);
+
+    /**
+     * @brief Renders the engine to the window.
+     *
+     * @param window The window to render the engine to.
+     */
     void render(sf::RenderWindow &window);
 
 private:
