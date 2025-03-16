@@ -8,7 +8,7 @@
 #ifndef MENUSTATE_HPP
 #define MENUSTATE_HPP
 
-#include "GameState.hpp"
+#include "State.hpp"
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include "../Constants.hpp"
@@ -21,7 +21,7 @@ namespace ed
     }
 }
 
-class ed::states::MenuState : public ed::states::GameState
+class ed::states::MenuState : public ed::states::State
 {
 public:
     /**

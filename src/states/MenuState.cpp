@@ -62,7 +62,18 @@ void ed::states::MenuState::handleInput(sf::Event &event)
             m_playSelected = false;
             m_exitSelected = false;
         }
+    }else if (const auto *mousePressed = event.getIf<sf::Event::MouseButtonPressed>())
+    {
+        bool isLeftClick = mousePressed->button == sf::Mouse::Button::Left;
+        if(isLeftClick && m_playSelected)
+        {
+        }
+        else if(isLeftClick && m_exitSelected)
+        {
+            
+        }
     }
+    
 }
 
 void ed::states::MenuState::render(sf::RenderWindow &window)
