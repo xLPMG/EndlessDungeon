@@ -13,12 +13,12 @@
 
 namespace ed
 {
-    namespace map {
+    namespace maps {
         class WorldMap;
     }
 }
 
-class ed::map::WorldMap
+class ed::maps::WorldMap
 {
 public:
     WorldMap(int width, int height);
