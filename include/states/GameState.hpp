@@ -12,7 +12,6 @@
 #include "../Constants.hpp"
 #include "../graphics/Camera.hpp"
 #include "../entities/Player.hpp"
-#include "../maps/WorldMap.hpp"
 #include "../maps/WorldLevel.hpp"
 
 #include <SFML/Graphics.hpp>
