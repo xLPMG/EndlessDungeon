@@ -8,7 +8,7 @@
 #ifndef WORLD_LEVEL_HPP
 #define WORLD_LEVEL_HPP
 
-#include "WorldMap.hpp"
+#include "Map.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
@@ -61,11 +61,11 @@ private:
     int m_seed;
     int m_level;
 
-    std::unique_ptr<ed::maps::WorldMap> m_groundMap;
-    std::unique_ptr<ed::maps::WorldMap> m_walkInFrontMap;
-    std::unique_ptr<ed::maps::WorldMap> m_collisionMap;
-    std::unique_ptr<ed::maps::WorldMap> m_walkBehindMap;
-    std::unique_ptr<ed::maps::WorldMap> m_decorMap;
+    std::unique_ptr<ed::maps::Map> m_groundMap;
+    std::unique_ptr<ed::maps::Map> m_walkInFrontMap;
+    std::unique_ptr<ed::maps::Map> m_collisionMap;
+    std::unique_ptr<ed::maps::Map> m_walkBehindMap;
+    std::unique_ptr<ed::maps::Map> m_decorMap;
 };
 
 #endif // WORLD_LEVEL_HPP

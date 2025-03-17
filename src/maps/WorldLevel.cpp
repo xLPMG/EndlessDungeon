@@ -11,11 +11,11 @@
 ed::maps::WorldLevel::WorldLevel(int width, int height, int seed, int level)
     : m_width(width), m_height(height), m_seed(seed), m_level(level)
 {
-    m_groundMap = std::make_unique<ed::maps::WorldMap>(m_width, m_height);
-    m_walkInFrontMap = std::make_unique<ed::maps::WorldMap>(m_width, m_height);
-    m_collisionMap = std::make_unique<ed::maps::WorldMap>(m_width, m_height);
-    m_walkBehindMap = std::make_unique<ed::maps::WorldMap>(m_width, m_height);
-    m_decorMap = std::make_unique<ed::maps::WorldMap>(m_width, m_height);
+    m_groundMap = std::make_unique<ed::maps::Map>(m_width, m_height);
+    m_walkInFrontMap = std::make_unique<ed::maps::Map>(m_width, m_height);
+    m_collisionMap = std::make_unique<ed::maps::Map>(m_width, m_height);
+    m_walkBehindMap = std::make_unique<ed::maps::Map>(m_width, m_height);
+    m_decorMap = std::make_unique<ed::maps::Map>(m_width, m_height);
 
     // example init
     for (int y = 0; y < m_height; ++y)
