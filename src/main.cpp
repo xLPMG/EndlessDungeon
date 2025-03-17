@@ -9,12 +9,16 @@
 #include <SFML/System.hpp>
 #include "Constants.hpp"
 #include "Engine.hpp"
+#include "spdlog/spdlog.h"
 
 /**
  * @brief Entry point of the program. Opens a window and runs the main loop.
  */
 int main()
 {
+    // Format logger
+    spdlog::set_pattern("[%H:%M:%S %z] [%^%l%$] %v");
+
     // Create the main window
     sf::RenderWindow window(sf::VideoMode({ed::WINDOW_WIDTH, ed::WINDOW_HEIGHT}), ed::GAME_NAME + " v" + ed::GAME_VERSION);
 
@@ -27,6 +31,8 @@ int main()
 
     const sf::Time timePerFrame = sf::seconds(1.0f / ed::TARGET_FPS);
     const sf::Time timePerTick = sf::seconds(1.0f / ed::TARGET_TPS);
+
+    spdlog::info("Starting game loop");
 
     // Start the game loop
     while (window.isOpen())

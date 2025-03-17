@@ -31,7 +31,12 @@ namespace ed
     //! The target ticks per second.
     unsigned int const TARGET_TPS = 60;
 
+    //! Used for normalizing the diagonal movement speed.
     const float DIAGONAL_SPEED = 0.7071;
+
+    unsigned int const TILE_WIDTH = 32;
+
+    unsigned int const TILE_HEIGHT = 32;
 
     /**
      * @brief Checks a condition and throws a runtime error if it is false.
