@@ -2,7 +2,7 @@
  * @author lgrumbach
  * @email github.com/xLPMG
  * @create date 16.03.2025
- * @modify date 16.03.2025
+ * @modify date 17.03.2025
  * @desc Header of the player entity.
  */
 #ifndef PLAYER_HPP
@@ -68,6 +68,16 @@ public:
      */
     sf::Vector2<float> getPosition();
 
+    /**
+     * @brief Gets the size of the player.
+     */
+    sf::Vector2<float> getSize();
+
+    /**
+     * @brief Gets the bounding box of the player.
+     */
+    sf::FloatRect getBoundingBox();
+
 private:
     //! The position of the player.
     sf::Vector2<float> m_position;
@@ -75,6 +85,8 @@ private:
     sf::Vector2<float> m_direction;
     //! The movement speed of the player.
     float m_speed;
+    //! The size of the player.
+    sf::Vector2<float> m_size;
     //! Temporary shape to represent the player.
     sf::RectangleShape m_shape;
 

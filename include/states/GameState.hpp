@@ -12,6 +12,8 @@
 #include "../Constants.hpp"
 #include "../graphics/Camera.hpp"
 #include "../entities/Player.hpp"
+#include "../maps/WorldMap.hpp"
+#include "../maps/WorldLevel.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <memory>
@@ -83,6 +85,8 @@ private:
     std::unique_ptr<ed::graphics::Camera> m_camera;
     //! The player for the game.
     std::unique_ptr<ed::entities::Player> m_player;
+    //! The current world level
+    std::unique_ptr<ed::maps::WorldLevel> m_worldLevel;
 };
 
 #endif // GAMESTATE_HPP
